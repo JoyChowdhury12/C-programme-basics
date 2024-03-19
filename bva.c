@@ -1,45 +1,47 @@
 #include <stdio.h>
 int main()
 {
-    char ch = 'c';
-    printf("Enter a alphabet : \n");
-    scanf("%c", &ch);
-    printf("The alphabet is %c\n", ch);
-    switch (ch)
+    int r, c, a[100][100], b[100][100], sum[100][100], i, j;
+    printf("Enter the number of rows (between 1 and 100): ");
+    scanf("%d", &r);
+    printf("Enter the number of columns (between 1 and 100): \n");
+    scanf("%d", &c);
+
+    for (i = 0; i < r; ++i)
     {
-    case 'a':
-        printf("This is vowel");
-        break;
-    case 'e':
-        printf("This is vowel");
-        break;
-    case 'i':
-        printf("This is vowel");
-        break;
-    case 'o':
-        printf("This is vowel");
-        break;
-    case 'u':
-        printf("This is vowel");
-        break;
-    case 'A':
-        printf("This is vowel");
-        break;
-    case 'E':
-        printf("This is vowel");
-        break;
-    case 'I':
-        printf("This is vowel");
-        break;
-    case 'O':
-        printf("This is vowel");
-        break;
-    case 'U':
-        printf("This is vowel");
-        break;
-    default:
-        printf("This is consonant\n");
+        for (j = 0; j < c; ++j)
+        {
+            printf("Enter element a%d%d: ", i + 1, j + 1);
+            scanf("%d", &a[i][j]);
+        }
     }
+
+    printf("Enter elements of 2nd matrix:\n");
+    for (i = 0; i < r; ++i)
+        for (j = 0; j < c; ++j)
+        {
+            printf("Enter element b%d%d: ", i + 1, j + 1);
+            scanf("%d", &b[i][j]);
+        }
+
+    // adding two matrices
+    for (i = 0; i < r; ++i)
+        for (j = 0; j < c; ++j)
+        {
+            sum[i][j] = a[i][j] + b[i][j];
+        }
+
+    // printing the result
+    printf("\nSum of two matrices: \n");
+    for (i = 0; i < r; ++i)
+        for (j = 0; j < c; ++j)
+        {
+            printf("%d   ", sum[i][j]);
+            if (j == c - 1)
+            {
+                printf("\n\n");
+            }
+        }
 
     return 0;
 }
